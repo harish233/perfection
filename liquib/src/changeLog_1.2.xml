@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+>
+
+<changeSet id="3" author="admin">
+	<tagDatabase tag="version_1.2"/>
+</changeSet>
+
+<changeSet id="4" author="admin">
+	<insert tableName="employee">
+		<column name="empid" value="1"/>
+		<column name="first_name" value="sachin"/>
+		<column name="second_name" value="tendulkar"/>
+		<column name="age" valueNumeric="40"/>
+	</insert>
+	<insert tableName="employee">
+		<column name="empid" value="2"/>
+		<column name="first_name" value="rahul"/>
+		<column name="second_name" value="dravid"/>
+		<column name="age" valueNumeric="38"/>
+	</insert>
+	<insert tableName="employee">
+		<column name="empid" value="3"/>
+		<column name="first_name" value="saurav"/>
+		<column name="second_name" value="ganguly"/>
+		<column name="age" valueNumeric="42"/>
+	</insert>
+	<insert tableName="employee">
+		<column name="empid" value="4"/>
+		<column name="first_name" value="vvs"/>
+		<column name="second_name" value="laxman"/>
+		<column name="age" valueNumeric="35"/>
+	</insert>
+	
+	<rollback>
+		<delete tableName="employee">
+			<where id = "(1,2,3,4)"></where>
+		</delete>
+	</rollback>
+	
+</changeSet>
+
+
+
+</databaseChangeLog>
